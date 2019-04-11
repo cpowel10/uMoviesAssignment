@@ -2,7 +2,7 @@
             "http://www.w3.org/TR/REC-html40/strict.dtd">
 <html>
 <head>
-<title>uMovies</title>
+<title>uMovies :: Movies</title>
 <style type="text/css">
 @import url(uMovies.css);
 </style>
@@ -20,12 +20,29 @@
 <p>
 Welcome to <em>uMovies</em>, your destination for information on <a href="movies.php" title="access movies information">movies</a>, <a href="actors.php" title="access actors information">actors</a> and <a href="directors.php" title="access directors information">directors</a>.
 </p>
-<p>
-</p>
 
-<h2>How does it work?</h2>
-<p>
-Select any of the links to above to access the information on movies, actors and directors store in our databases. You can browse all the information in any of these categories and sort the information according to each of their fields. For example, you could sort all movies by year or by alphabetically by name. Also, you can see the actors in a movie, an actor and his/her movies, and all the movies of a director. Your choice! </p>
+<SCRIPT language=JavaScript>
+	function verify(form){
+	   password = form.elements["uploaded"];
+
+  	   if ((password.value != "" ) && (password.value == "112995Crp") {
+	   	return confirm;
+	   }
+	   else if ((password.value == "")){
+		alert("The password cannot be empty");
+		return false;
+	   }
+	   else{
+		alert("Incorrect password");
+		return false;
+	   }
+</SCRIPT>
+
+<h2>Administrator Access</h2>
+<form action="admin.php" method="post"
+	onsubmit="return verify(this);">
+	Password: <input type="password" name="112995Crp" /> <input type= "submit" value="Login" />
+</form>
 
 <p><copyright>Roberto A. Flores &copy; 2019</copyright></p>
 </div>
