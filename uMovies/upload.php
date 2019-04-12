@@ -21,29 +21,5 @@
 Welcome to <em>uMovies</em>, your destination for information on <a href="movies.php" title="access movies information">movies</a>, <a href="actors.php" title="access actors information">actors</a> and <a href="directors.php" title="access directors information">directors</a>.
 </p>
 
-<SCRIPT language=JavaScript>
-	function verify(form){
-  	   if ((pass.value != "" ) && (pass.value == "") {
-	   	return confirm;
-	   }
-	   else if ((pass.value == "")){
-		alert("The password cannot be empty");
-		return false;
-	   }
-	   else{
-		alert("Incorrect password");
-		return false;
-	   }
-</SCRIPT>
+<h2>Administrator Menu</h2>
 
-<h2>Administrator Access</h2>
-<form action="adminSucceed.html" method="post"
-	onsubmit="return verify(this);">
-	Password: <input type="password" name="pass" /> <input type= "submit" value="Login" />
-</form>
-
-<p><copyright>Roberto A. Flores &copy; 2019</copyright></p>
-</div>
-
-</body>
-</html>

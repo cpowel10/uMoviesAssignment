@@ -23,24 +23,25 @@ Welcome to <em>uMovies</em>, your destination for information on <a href="movies
 
 <SCRIPT language=JavaScript>
 	function verify(form){
-  	   if ((pass.value != "" ) && (pass.value == "") {
-	   	return confirm;
-	   }
-	   else if ((pass.value == "")){
-		alert("The password cannot be empty");
-		return false;
-	   }
-	   else{
-		alert("Incorrect password");
-		return false;
-	   }
+	file = form.elements["uploaded"];
+	
+	if((file.value != null) && (file.value != "")){
+	  return confirm("Upload " + file.value + "?");
+	}
+	alert("Please provide a filename.");
+	return false;
+	}
 </SCRIPT>
 
-<h2>Administrator Access</h2>
-<form action="adminSucceed.html" method="post"
+<h2>Administrator Menu</h2>
+<input type="hidden" name="db" value="new mysqli('localhost','uMoviesAdmin','ninjaTurtles192!','umovies')"/>
+<p><b> Uploading Data File </b></p>
+<form enctype="multipart/form-data" action="upload.php" method="post"
 	onsubmit="return verify(this);">
-	Password: <input type="password" name="pass" /> <input type= "submit" value="Login" />
+	data file <input type="file" name="uploaded" /> <input type= "submit" value="Login" />
 </form>
+<p><b> Deleting Information </b></p>
+
 
 <p><copyright>Roberto A. Flores &copy; 2019</copyright></p>
 </div>
