@@ -34,14 +34,15 @@ Welcome to <em>uMovies</em>, your destination for information on <a href="movies
 </SCRIPT>
 
 <h2>Administrator Menu</h2>
-<input type="hidden" name="db" value="new mysqli('localhost','uMoviesAdmin','ninjaTurtles192!','umovies')"/>
+<input type="hidden" name="db" value="new mysqli('localhost','uMoviesAdmin','DBpass1','umovies')"/>
 <p><b> Uploading Data File </b></p>
 <form enctype="multipart/form-data" action="upload.php" method="post"
 	onsubmit="return verify(this);">
 	data file <input type="file" name="uploaded" /> <input type= "submit" value="Login" />
 </form>
 <p><b> Deleting Information </b></p>
-
+<input type="submit" value="Delete All">
+	<?php onsubmit="return verifyClear(this)"?>
 
 <p><copyright>Roberto A. Flores &copy; 2019</copyright></p>
 </div>

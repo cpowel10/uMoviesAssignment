@@ -22,4 +22,26 @@ Welcome to <em>uMovies</em>, your destination for information on <a href="movies
 </p>
 
 <h2>Administrator Menu</h2>
+<p>
+<?php
 
+$okay = true;
+if($_FILES['uploaded']['error']>0){
+   echo 'A problem was detected:<br/>';
+   switch($_FILES['uploaded']['error']){
+      case 1: echo '* File exceeded maximum size allowed by server.<br/>'; break;
+      case 2: echo '* File exceeded maximum size allowed by application.<br/>'; break;
+      case 3: echo '* File could not be fully uploaded.<br/>'; break;
+      case 4: echo '* File was not uploaded.<br/>';
+   }
+   $okay = false;
+}
+
+
+?>
+</p>
+<p><copyright>Roberto A. Flores &copy; 2019</copyright></p>
+</div>
+
+</body>
+</html>

@@ -23,10 +23,11 @@ Welcome to <em>uMovies</em>, your destination for information on <a href="movies
 
 <SCRIPT language=JavaScript>
 	function verify(form){
-  	   if ((pass.value != "" ) && (pass.value == "") {
+	   pwrd = form.elements["pass"];
+  	   if ((pwrd.value != "" ) && (pwrd.value == "DBpass1") {
 	   	return confirm;
 	   }
-	   else if ((pass.value == "")){
+	   else if ((pwrd.value == "")){
 		alert("The password cannot be empty");
 		return false;
 	   }
