@@ -18,7 +18,7 @@
 <div id="content">
 <h1>uMovies&trade;</h1>
 <p>
-Welcome to <em>uMovies</em>, your destination for information on <a href="movies.php" title="access movies information">movies</a>, <a href="actors.php" title="access actors information">actors</a> and <a href="directors.php" title="access directors information">directors</a>.
+Welcome to <em>uMovies</em>, your destination for information on <a href="movies.html" title="access movies information">movies</a>, <a href="actors.html" title="access actors information">actors</a> and <a href="directors.html" title="access directors information">directors</a>.
 </p>
 
 <h2>Actor</h2>
@@ -61,8 +61,8 @@ else {
         echo "<table class=\"uMovies\">\n";
         echo "<tr>\n";
         echo "<th></th>";
-        echo "<th><a href=\"actor.php?name=".$actor['name']."&order=name\">Movie</a></th>";
-        echo "<th><a href=\"actor.php?name=".$actor['name']."&order=role\">Role</a></th>";
+        echo "<th><a href=\"actor.html?name=".$actor['name']."&order=name\">Movie</a></th>";
+        echo "<th><a href=\"actor.html?name=".$actor['name']."&order=role\">Role</a></th>";
         echo "<tr>\n";
 
         $select = 'select * from performed_in where actor="'.$actor['name'].'"';
@@ -83,7 +83,7 @@ else {
                 $row = $result->fetch_assoc();
                 echo "<tr class=\"highlight\">";
                 echo "<td>".($i+1)."</td>";
-                echo "<td><a href=\"movie.php?name=".$row['movie']."\" />".$row['movie']."</a></td>";
+                echo "<td><a href=\"movie.html?name=".$row['movie']."\" />".$row['movie']."</a></td>";
                 echo "<td>".$row['role']."</td>";
                 echo "</tr>\n";
             }

@@ -21,7 +21,7 @@
 Welcome to <em>uMovies</em>, your destination for information on <a href="movies.php" title="access movies information">movies</a>, <a href="actors.php" title="access actors information">actors</a> and <a href="directors.php" title="access directors information">directors</a>.
 </p>
 
-<h2>Actor</h2>
+<h2>Director</h2>
 
 <p>
 <?php
@@ -32,7 +32,7 @@ if ($moviesdb->connect_errno) {
     echo '<h3>Database Access Error!</h3>';
 }
 else {
-    $select = 'select * from actors';
+    $select = 'select * from director';
     if (@$_GET['name'] != "") {
         $select .= ' where name = "'.$_GET['name'].'"';
     }
@@ -41,34 +41,21 @@ else {
     $rows   = $result->num_rows;
 
     if ($rows == 0) {
-        echo "<h3>No Actor to Display</h3>";
+        echo "<h3>No Director to Display</h3>";
     }
     else {
-        $actor = $result->fetch_assoc();
-	$movie = $result->fetch_assoc();
-	
-	$select = 'select gender from actors where name="'.$actor['name'].'"';
-        $result = $moviesdb->query( $select );
-
-        echo "<h3><span class=\"uGender\">".$actor['name']."</span> (".$actor['gender'].")</h3>";
-        echo "<strong>Gender: echo $result</strong>";
-
-        $select = 'select * from directed_by where movie="'.$actor['name'].'"';
-        $result = $moviesdb->query( $select );
-        $rows   = $result->num_rows;
+        $director = $result->fetch_assoc();
 
         echo "<strong>Filmography:</strong><br />";
         echo "<table class=\"uMovies\">\n";
         echo "<tr>\n";
         echo "<th></th>";
-        echo "<th><a href=\"actor.php?name=".$actor['name']."&order=name\">Movie</a></th>";
-        echo "<th><a href=\"actor.php?name=".$actor['name']."&order=role\">Role</a></th>";
+        echo "<th>Name</th>";
         echo "<tr>\n";
 
-        $select = 'select * from performed_in where actor="'.$actor['name'].'"';
+        $select = 'select movie from directed_by where director="'.$director['name'].'"';
         switch (@$_GET['order']) {
             case 'movie':
-            case 'role': $select .= ' order by '.$_GET['order'];
         }
         $result = $moviesdb->query( $select );
         $rows             = $result->num_rows;
@@ -84,7 +71,6 @@ else {
                 echo "<tr class=\"highlight\">";
                 echo "<td>".($i+1)."</td>";
                 echo "<td><a href=\"movie.php?name=".$row['movie']."\" />".$row['movie']."</a></td>";
-                echo "<td>".$row['role']."</td>";
                 echo "</tr>\n";
             }
         }
